@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars for Sale</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+</head>
+<body>
+    <h1>Cars for Sale</h1>
+    <a href="{% url 'add_car' %}">Add New Car</a>
+    <ul>
+        {% for car in cars %}
+            <li>
+                <strong>{{ car.name }}</strong> - ${{ car.price }}
+                <br>
+                Model Year: {{ car.model_year }} | Mileage: {{ car.mileage }} km
+            </li>
+        {% empty %}
+            <li>No cars available for sale.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
